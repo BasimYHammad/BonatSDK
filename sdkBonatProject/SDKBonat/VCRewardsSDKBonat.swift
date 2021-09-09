@@ -343,6 +343,8 @@ class VCRewardsSDKBonat: UIViewController  , UITextViewDelegate {
         })
         
     }
+    
+    
  // test 
 
     func showData() {

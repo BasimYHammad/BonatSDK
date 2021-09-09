@@ -9,10 +9,7 @@ import Foundation
 open class APIManagerSDKBonat {
     
     static let shared = APIManagerSDKBonat()
-    
-    let apiURL =  "https://antaderk.com/api/v1/"
-    
-    
+        
     let URL_sdkAuthApi = "sdk/auth"
     let URL_sdkAuthCustomer = "sdk/auth/customer"
     
@@ -20,12 +17,6 @@ open class APIManagerSDKBonat {
     let URL_coupons = "coupons"
     let URL_inbox = "inbox"
     let URL_pointRedemption = "pointRedemption"
-    
-    
-//    let URL_updateOrder = "https://us-central1-bonatdev.cloudfunctions.net/updateOrder?env=dev"
-
-    
-    
     
     enum serverApi {
         case test
