@@ -10,13 +10,29 @@ import UIKit
 class VCRewardsSDKBonat: UIViewController  , UITextViewDelegate {
 
 
-    var languageSDK = "ar"
-
+    var languageSDK = "en"
+    var idMerchant = ""
+    var secret = ""
+    var phoneNumber = ""
 
 
     var customerAuth1 : CustomerAuthSDKBonat!
     var loyalMerchant : LoyalMerchantSDKBonat?
     var coupon : CouponSDKBonat?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.setSetting()
+        changelanguageSDK(languageSDK: self.languageSDK)
+        post_SDKBounatAuthFirst(idMerchant: self.idMerchant, secret: self.secret, phoneNumber: self.phoneNumber, onSuccess: { (dataNew) in
+            self.customerAuth1 = dataNew
+            self.showData()
+            self.viewEmptyALL.isHidden = true
+            self.get_loyalMerchant(idMerchant: self.customerAuth1.data.idMerchant?.description ?? "" , sdKTokenNew: self.customerAuth1.data.sdkToken.description)
+            self.get_couponsList(sdKTokenNew: self.customerAuth1.data.sdkToken.description)
+        })
+        
+    }
     
 
     
@@ -329,21 +345,7 @@ class VCRewardsSDKBonat: UIViewController  , UITextViewDelegate {
         
     }
   
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.setSetting()
-        self.languageSDK = "en"
-        changelanguageSDK(languageSDK: self.languageSDK)
-        post_SDKBounatAuthFirst(idMerchant: "1000", secret: "7102273b683c8e7d", phoneNumber: "0512345678", onSuccess: { (dataNew) in
-            self.customerAuth1 = dataNew
-            self.showData()
-            self.viewEmptyALL.isHidden = true
-            self.get_loyalMerchant(idMerchant: self.customerAuth1.data.idMerchant?.description ?? "" , sdKTokenNew: self.customerAuth1.data.sdkToken.description)
-            self.get_couponsList(sdKTokenNew: self.customerAuth1.data.sdkToken.description)
-        })
-        
-    }
-    
+   
     
  // test 
 

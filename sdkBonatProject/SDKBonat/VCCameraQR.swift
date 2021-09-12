@@ -13,6 +13,26 @@ import Foundation
 class VCCameraQR: UIViewController , AVCaptureMetadataOutputObjectsDelegate {
     
     var customerAuth1 : CustomerAuthSDKBonat!
+    
+    
+    var languageSDK = "en"
+    var idMerchant = ""
+    var secret = ""
+    var phoneNumber = ""
+
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.navigationController?.navigationBar.isHidden = true
+        startCapture()
+        post_SDKBounatAuthFirst(idMerchant: self.idMerchant, secret: self.secret, phoneNumber: self.phoneNumber, onSuccess: { (dataNew) in
+            self.customerAuth1 = dataNew
+          
+        })
+
+    }
+    
+    
     func startCapture() {
         captureSession = AVCaptureSession()
         guard let videoCaptureDevice_1 = AVCaptureDevice.default(for: .video) else { return }
@@ -86,17 +106,7 @@ class VCCameraQR: UIViewController , AVCaptureMetadataOutputObjectsDelegate {
         self.navigationController?.popViewController(animated: true)
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.navigationController?.navigationBar.isHidden = true
-        startCapture()
-        post_SDKBounatAuthFirst(idMerchant: "1000", secret: "7102273b683c8e7d", phoneNumber: "0512345678", onSuccess: { (dataNew) in
-            self.customerAuth1 = dataNew
-          
-        })
-
-    }
-    
+  
     func updateOrder(idCustomer : String , data : String , sdKTokenNew : String) {
         
         APIManagerSDKBonat.shared.updateOrder(idCustomer : idCustomer ,data : data  , sdKTokenNew : sdKTokenNew, onSuccess : {
