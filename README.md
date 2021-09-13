@@ -165,7 +165,8 @@ ________
 
 -- Access to the QRCode reading button until it is placed in the application. You can download it from here scanBtnHome **w 70 x h 70** : 
 
-![download](https://drive.google.com/drive/folders/15OvILkkFvjpZuBsVGB4g3fhQayf-3VEv?usp=sharing)
+**download**
+(https://drive.google.com/drive/folders/15OvILkkFvjpZuBsVGB4g3fhQayf-3VEv?usp=sharing)
 
 
 ________
