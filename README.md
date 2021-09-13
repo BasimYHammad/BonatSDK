@@ -2,6 +2,8 @@
 SDKBonat iOS : 
 
 
+![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
+
 
 The project is divided into two parts : 
 
@@ -99,6 +101,7 @@ Change the next
 1-  environment (.test , .stage , .live)
 2-  language (.ar , .en)
  
+  
   func prepareURL(url : String) -> String {
         return getServerApiStatus(environment: .stage) + getlanguageSDK(language: .en)  + "/\(url)"   }
 
